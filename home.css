@@ -1,0 +1,178 @@
+/*
+
+KAMPANYA KISMI
+
+*/
+.offer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.offer-image>img{
+    display: flex;
+    width: 100%;
+}
+.offer-name{
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    font-size: 50px;
+    font-weight: 1000;
+    bottom: 10%;
+    width: 60%;
+    color: white;
+    text-shadow: 0 0 15px rgb(98, 98, 98);
+}
+
+/*
+
+YENİ ÜRÜNLER
+
+*/
+
+.new-products{
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    position: relative;
+}
+.new-products>h4{
+    font-size: 30px;
+    font-weight: 1000;
+}
+.new-product-content{
+    display: flex;
+    width: 90vw;
+    height: auto;
+    align-items: center;
+    transition: 0.5s;
+    white-space: nowrap;
+}
+.product-wrapper{
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+.prev-button,.next-button{
+    opacity: 0;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    cursor: pointer;
+    z-index: 999;
+    transition: 0.5s;
+}
+.prev-button{
+    left: 0;
+}
+.next-button{
+    right: 0;
+}
+.new-products:hover>.prev-next-buttons{
+    opacity: 1;
+}
+.new-product{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    height:auto;
+    margin: 0 10px;
+    flex: 0 0 auto;
+    position: relative;
+}
+.new-products-cart-box{
+    position: absolute;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    border: none;
+    transform: translateX(-50%);
+    background-color: #000000;
+    color: white;
+    font-size: 15px;
+    left: 50%;
+    bottom: 30%;
+    opacity: 0;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.new-product:hover>.new-products-cart-box{
+    opacity: 1;
+}
+.new-product>img{
+    display: flex;
+    width: 100%;
+}
+.product-description{
+    width: 100%;
+    display: flex;
+    height: 100px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.product-name{
+    width: 90%;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.product-price{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 1000;
+}
+
+/*
+
+AÇIKLAMA KISMI
+
+*/
+
+.description{
+    display: flex;
+    width: 90%;
+    height: 500px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+}
+.description-content{
+    display: flex;
+    width: 30%;
+    height: 450px;
+    flex-direction: column;
+}
+.description-content>img{
+    width: 100%;
+}
+.description-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.description-text>h5{
+    font-size: 20px;
+}
