@@ -1,0 +1,107 @@
+body{
+    display: flex;
+    align-content: inherit;
+    justify-content: center;
+    position: relative;
+    margin: 50px;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(162, 162, 162);
+}
+table{
+    border: 2px solid black;
+    border-collapse: collapse;
+    background-color: transparent;
+    width: 80%;
+    max-height: 100%;
+}
+th,td{
+    border: 1px solid black;
+    font-size: 15px;
+}
+.button{
+    background-color:rgb(255, 155, 155);
+    border: 1px solid black;
+    border-radius: 2px;
+}
+.product-add{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: auto;
+    background-color: rgb(69, 69, 108);
+    border: 1px white solid;
+    border-radius: 5px;
+    color: white;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+    padding: 20px;
+}
+.save-button{
+    background-color: white;
+    border: 1px solid black;
+    width: 70%;
+    height: 45px;
+}
+.product-add>div{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.product-add>div>div{
+    display: flex;
+    align-items: center;
+}
+.product-add>div>div>p{
+    margin-right: 10px;
+}
+.product-add>div>label{
+    height: 25px;
+    padding: 10px;
+}
+.product-add>div>input{
+    height: 25px;
+    font-size: 15px;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+.admin-bar{
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    background-color: rgb(69, 69, 108);
+    height: 80vh;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.panel{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+    color: white;
+}
+.panel:last-child{
+    border: none;
+}
+.product-edit-box{
+    width: 80%;
+    background-color: rgb(222, 222, 222);
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-sizing: border-box;
+    border: 10px solid rgb(69, 69, 108);
+}

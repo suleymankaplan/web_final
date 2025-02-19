@@ -95,7 +95,7 @@ header{
 .other-list{
     display: flex;
     height: 100%;
-    width: 15%;
+    min-width: 15%;
     align-items: center;
     justify-content: space-around;
 }
@@ -106,6 +106,9 @@ header{
     height: 50%;
     font-size: 20px;
     margin: 0 10px;
+}
+.other-list>li>a{
+    display: flex;
 }
 main{
     display: flex;

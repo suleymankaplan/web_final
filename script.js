@@ -2,13 +2,54 @@
 
 //FİLTRE ANİMASYONU
 
+document.addEventListener('DOMContentLoaded',()=>{
+    if(localStorage.getItem("kategori")=="acik"){
+        filter[0].style.height="120px"
+        console.log("a")
+        filter[0].children[1].style.display="flex"
+    }
+    if(localStorage.getItem("beden")=="acik"){
+        filter[1].style.height="200px"
+        console.log("a")
+        filter[1].children[1].style.display="flex"
+    }
+    if(localStorage.getItem("stok")=="acik"){
+        filter[2].style.height="120px"
+        console.log("a")
+        filter[2].children[1].style.display="flex"
+    }
+    if(localStorage.getItem("renk")=="acik"){
+        filter[3].style.height="180px"
+        console.log("a")
+        filter[3].children[1].style.display="flex"
+    }
+
+})
 
 const filter=document.querySelectorAll(".filter")
 const filterBoxes=document.querySelectorAll(".filter-size")
+
 filter.forEach(a => {
     a.children[0].addEventListener('click',()=>{
         if(a.children[1].style.display=="none"){
-            a.style.height="150px"
+            switch(a){
+                case filter[0]:
+                    a.style.height="120px"
+                    localStorage.setItem("kategori","acik")
+                    break;
+                case filter[1]:
+                    a.style.height="200px"
+                    localStorage.setItem("beden","acik")
+                    break;
+                case filter[2]:
+                    a.style.height="120px"
+                    localStorage.setItem("stok","acik")
+                    break;
+                case filter[3]:
+                    a.style.height="180px"
+                    localStorage.setItem("renk","acik")
+                    break;
+            }
             for(let i=0;i<a.children[1].children.length;i++){
                 setTimeout(() => {
                     a.children[1].children[i].style.opacity=1
@@ -17,6 +58,20 @@ filter.forEach(a => {
             a.children[1].style.display="flex"
         }
         else if(a.children[1].style.display=="flex"){
+            switch(a){
+                case filter[0]:
+                    localStorage.setItem("kategori","kapali")
+                    break;
+                case filter[1]:
+                    localStorage.setItem("beden","kapali")
+                    break;
+                case filter[2]:
+                    localStorage.setItem("stok","kapali")
+                    break;
+                case filter[3]:
+                    localStorage.setItem("renk","kapali")
+                    break;
+            }
             a.style.height="60px"
             for(let i=0;i<a.children[1].children.length;i++){
                 a.children[1].children[i].style.opacity=0
@@ -32,92 +87,92 @@ filter.forEach(a => {
 //FİLTRELEME SİSTEMİ
 
 
-filterBoxes.forEach(box=>{
-    box.addEventListener('click',()=>{
-        if(box.style.backgroundColor!="black"){
-            console.log(box.parentElement.children.length)
-            if((box!=filterBoxes[2]||box!=filterBoxes[3])){
-            for(let i=0;i<box.parentElement.children.length;i++){
-                if(box.parentElement.children[i].style.backgroundColor=="black"){
-                    if(box!=filterBoxes[2]&&box!=filterBoxes[3]&&box!=filterBoxes[4]&&box!=filterBoxes[5]&&box!=filterBoxes[6]){
-                        box.parentElement.children[i].style.backgroundColor="white"
-                        box.parentElement.children[i].style.color="black"
-                        box.parentElement.children[i].setAttribute("class","filter-size")
-                    }
-                }
-            }
-        }
-            box.style.backgroundColor="black"
-            box.style.color="white"
-            box.setAttribute("class","filter-size selected-filter")
-        }
-        else{
-            box.style.backgroundColor="white"
-            box.style.color="black"
-            box.setAttribute("class","filter-size")
-        }
-    })
-})
-function filterApply(){
-    const selectedFilters=document.querySelectorAll(".selected-filter")
-    let className=[]
-    selectedFilters.forEach(filter=>{
-        switch (filter.textContent) {
-            case "Stokta Var":
-                className.push("stokta")
-                break;
-            case "Stokta Yok":
-                className.push("stokta-yok")
-                break;
-            case "Tişört":
-                className.push("tisort")
-                break;
-            case "Hoodie":
-                className.push("hoodie")
-                break;
-            case "XS":
-                className.push(" xs")
-                break;
-            case "S":
-                className.push(" s ")
-                break;
-            case "M":
-                className.push(" m")
-                break;
-            case "L":
-                className.push(" l")
-                break;
-            case "XL":
-                className.push(" xl")
-                break;
-            case "Siyah":
-                className.push("siyah")
-                break;
-            case "Sarı":
-                className.push("sari")
-                break;
-            case "Beyaz":
-                className.push("beyaz")
-                break;
-            case "Mavi":
-                className.push("mavi")
-                break;
-        }
-    })
-    let check=0
-    productBox.forEach(x=>{
-        check=0
-        for(let i=0;i<className.length;i++){
-            if(x.classList.value.includes(className[i]))
-                check++
-        }
-        if(check==className.length)
-            x.style.display="flex"
-        else{
-            x.style.display="none"
-        }
-    })
-}
+// filterBoxes.forEach(box=>{
+//     box.addEventListener('click',()=>{
+//         if(box.style.backgroundColor!="black"){
+//             console.log(box.parentElement.children.length)
+//             if((box!=filterBoxes[2]||box!=filterBoxes[3])){
+//             for(let i=0;i<box.parentElement.children.length;i++){
+//                 if(box.parentElement.children[i].style.backgroundColor=="black"){
+//                     if(box!=filterBoxes[2]&&box!=filterBoxes[3]&&box!=filterBoxes[4]&&box!=filterBoxes[5]&&box!=filterBoxes[6]){
+//                         box.parentElement.children[i].style.backgroundColor="white"
+//                         box.parentElement.children[i].style.color="black"
+//                         box.parentElement.children[i].setAttribute("class","filter-size")
+//                     }
+//                 }
+//             }
+//         }
+//             box.style.backgroundColor="black"
+//             box.style.color="white"
+//             box.setAttribute("class","filter-size selected-filter")
+//         }
+//         else{
+//             box.style.backgroundColor="white"
+//             box.style.color="black"
+//             box.setAttribute("class","filter-size")
+//         }
+//     })
+// })
+// function filterApply(){
+//     const selectedFilters=document.querySelectorAll(".selected-filter")
+//     let className=[]
+//     selectedFilters.forEach(filter=>{
+//         switch (filter.textContent) {
+//             case "Stokta Var":
+//                 className.push("var")
+//                 break;
+//             case "Stokta Yok":
+//                 className.push("yok")
+//                 break;
+//             case "Tişört":
+//                 className.push("tisort")
+//                 break;
+//             case "Hoodie":
+//                 className.push("hoodie")
+//                 break;
+//             case "XS":
+//                 className.push(" xs")
+//                 break;
+//             case "S":
+//                 className.push(" s ")
+//                 break;
+//             case "M":
+//                 className.push(" m")
+//                 break;
+//             case "L":
+//                 className.push(" l")
+//                 break;
+//             case "XL":
+//                 className.push(" xl")
+//                 break;
+//             case "Siyah":
+//                 className.push("siyah")
+//                 break;
+//             case "Sarı":
+//                 className.push("sari")
+//                 break;
+//             case "Beyaz":
+//                 className.push("beyaz")
+//                 break;
+//             case "Mavi":
+//                 className.push("mavi")
+//                 break;
+//         }
+//     })
+//     let check=0
+//     productBox.forEach(x=>{
+//         check=0
+//         for(let i=0;i<className.length;i++){
+//             if(x.classList.value.includes(className[i]))
+//                 check++
+//         }
+//         if(check==className.length)
+//             x.style.display="flex"
+//         else{
+//             x.style.display="none"
+//         }
+//     })
+// }
 
 
 //ÜRÜNÜN MOUSE ÜZERİNDEYKEN RESMİN DEĞİŞMESİ
@@ -164,35 +219,35 @@ newProduct.forEach(product=>{
 
 //PRODUCT SAYFASINA VERİ AKTARMA
 
-document.addEventListener("DOMContentLoaded",function(){
-    const pageId=document.querySelector("body").getAttribute("class")
-    if(pageId=="product-page"){
-        let img=document.querySelector(".product-image")
-        let title=document.querySelector(".product-title")
-        let price=document.querySelector(".product-price")
-        price.textContent=localStorage.getItem("fiyat")
-        title.textContent=localStorage.getItem("başlık")
-        let srcText=localStorage.getItem("resim")
-        img.children[0].children[1].setAttribute("src",srcText)
-        srcText=srcText.slice(0,srcText.length-6)+"1"+srcText.slice(srcText.length-5)
-        img.children[0].children[0].setAttribute("src",srcText)
+// document.addEventListener("DOMContentLoaded",function(){
+//     const pageId=document.querySelector("body").getAttribute("class")
+//     if(pageId=="product-page"){
+//         let img=document.querySelector(".product-image")
+//         let title=document.querySelector(".product-title")
+//         let price=document.querySelector(".product-price")
+//         price.textContent=localStorage.getItem("fiyat")
+//         title.textContent=localStorage.getItem("başlık")
+//         let srcText=localStorage.getItem("resim")
+//         img.children[0].children[1].setAttribute("src",srcText)
+//         srcText=srcText.slice(0,srcText.length-6)+"1"+srcText.slice(srcText.length-5)
+//         img.children[0].children[0].setAttribute("src",srcText)
 
-        //olmayan bedenleri seçilemez yapma
+//         //olmayan bedenleri seçilemez yapma
 
-        const productSizeButtons=document.querySelectorAll(".product-size-box")
-        productSizeButtons.forEach(button=>{
-            if(localStorage.getItem("class ismi").includes(" "+button.textContent.toLowerCase()+" ")){}
-            else{
-                button.setAttribute("class","product-size-box not-available")
-                button.style.opacity=0.3
-            }
-        })
-    }
-    else{
-        localStorage.clear();
-    }
+//         const productSizeButtons=document.querySelectorAll(".product-size-box")
+//         productSizeButtons.forEach(button=>{
+//             if(localStorage.getItem("class ismi").includes(" "+button.textContent.toLowerCase()+" ")){}
+//             else{
+//                 button.setAttribute("class","product-size-box not-available")
+//                 button.style.opacity=0.3
+//             }
+//         })
+//     }
+//     else{
+//         localStorage.clear();
+//     }
     
-})
+// })
 const sizeBoxes=document.querySelectorAll(".product-size-box")
 sizeBoxes.forEach(box=>{
     box.addEventListener('click',()=>{
@@ -276,3 +331,27 @@ function decrease(){
     if(increaseButton.parentElement.children[1].textContent>1)
         decreaseButton.parentElement.children[1].textContent--
 }
+
+//GİRİŞ YAP KAYIT OL ARASI GEÇİŞ
+const signButtons=document.querySelectorAll(".sign")
+function signUp(){
+    document.querySelector("#sign-in-form").style.display="none"
+    document.querySelector("#sign-up-form").style.display="flex"
+}
+function signIn(){
+    document.querySelector("#sign-in-form").style.display="flex"
+    document.querySelector("#sign-up-form").style.display="none"
+}
+
+//filtre seçilmemişse sayfayı yenilemesin
+
+const form = document.querySelector(".filters");
+form.addEventListener("submit", function (event) {
+    const checkboxes = document.querySelectorAll(".filter-size");
+    const isAnyChecked = Array.from(checkboxes).some((checkbox) => checkbox.checked);
+    if (!isAnyChecked) {
+        event.preventDefault();
+        alert("Lütfen en az bir seçenek işaretleyin.")
+        return;
+    }
+});

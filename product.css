@@ -3,6 +3,7 @@
     height: auto;
     display: flex;
     margin-top: 20px;
+    flex-direction: row;
 }
 .product-image{
     width: 60%;
@@ -48,12 +49,11 @@
 .product-next-button{
     right: 0;
 }
-.product-description{
+.product-page-description{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 40%;
-    margin-left: 20px;
 }
 .product-title{
     width: 100%;
@@ -89,6 +89,9 @@
 }
 .product-size-box:hover{
     background-color: rgb(220, 220, 220);
+}
+.not-available{
+    opacity: 0.3;
 }
 .not-available:hover{
     background-color: white;
